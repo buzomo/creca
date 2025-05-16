@@ -149,6 +149,8 @@
 </head>
 
 <body>
+    <a href="https://github.com/buzomo/creca/edit/main/index.html"
+        style="text-decoration:none;position:absolute;right:13px;bottom:0;color:orange">edit now</a>
     <div class="container">
         <div class="stats-container">
             <div class="period-stats">
@@ -328,13 +330,13 @@
                 const file = event.target.files[0];
                 if (file) {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         let csv = e.target.result;
                         // 文字化け検出時はshift_jisで再読込
                         if (/^[\uFFFD\uFFFD]+/.test(csv) || /[\uFFFD]/.test(csv) || /����/.test(csv)) {
                             // 再度shift_jisで読み直す
                             const retryReader = new FileReader();
-                            retryReader.onload = function(ev) {
+                            retryReader.onload = function (ev) {
                                 csv = ev.target.result;
                                 const parsed = parseCSV(csv);
                                 if (parsed && parsed.length > 0) {
@@ -648,7 +650,8 @@
                         'ﾗ': 'ラ', 'ﾘ': 'リ', 'ﾙ': 'ル', 'ﾚ': 'レ', 'ﾛ': 'ロ',
                         'ﾜ': 'ワ', 'ｦ': 'ヲ', 'ﾝ': 'ン',
                         'ｧ': 'ァ', 'ｨ': 'ィ', 'ｩ': 'ゥ', 'ｪ': 'ェ', 'ｫ': 'ォ',
-                        'ｯ': 'ッ', 'ｬ': 'ャ', 'ｭ': 'ュ', 'ｮ': 'ョ'                    };
+                        'ｯ': 'ッ', 'ｬ': 'ャ', 'ｭ': 'ュ', 'ｮ': 'ョ'
+                    };
 
                     // マップに存在するなら変換、なければそのまま
                     return conversionMap[ch] || ch;
@@ -949,7 +952,7 @@
                             stacked: true
                         }
                     },
-                    onClick: function(evt, elements) {
+                    onClick: function (evt, elements) {
                         if (elements && elements.length > 0) {
                             const chart = elements[0];
                             // chart.index: x軸のインデックス
